@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AppMusicOnline</string>
+    <string name="hottrend">Hot Trend</string>
+    <string name="personal">Personal</string>
+    <string name="explore">Explore</string>
+    <string name="songs">songs</string>
+    <string name = "albums">albums</string>
+    <string name ="playlists">playlists</string>
+</resources>

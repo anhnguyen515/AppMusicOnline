@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="song_name">15dp</dimen>
+    <dimen name="song_artist">10dp</dimen>
+    <dimen name="song_time">10dp</dimen>
+    <dimen name="margin_basex2">10dp</dimen>
+    <dimen name="margin_basex3">15dp</dimen>
+    <dimen name="margin_basex4">20dp</dimen>
+    <dimen name="text_small">16sp</dimen>
+    <dimen name="text_medium">18sp</dimen>
+    <dimen name="text_large">20sp</dimen>
+    <dimen name="list_size">600dp</dimen>
+
+</resources>

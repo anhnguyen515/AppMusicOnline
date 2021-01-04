@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="#3e3ee2"-->
+<!--        android:id="@+id/appbarSearch">-->
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbarSearch"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"/>-->
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchview"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchview"
+        android:id="@+id/recycleViewSearch" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Khong Co Du Lieu Bai Hat"
+        android:textColor="#E60000"
+        android:textSize="45sp"
+        android:visibility="gone"
+        android:id="@+id/textViewKhongCoDuLieu" />
+
+</RelativeLayout>

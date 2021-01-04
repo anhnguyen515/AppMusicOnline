@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_below="@+id/indicatorMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/trending_album"
+        android:id="@+id/txt5"
+
+        android:layout_marginLeft="20dp"
+        android:text="Trending Album"/>
+
+
+    <ImageView
+        android:layout_below="@+id/indicatorMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/txt5"
+
+        android:layout_marginLeft="120dp"
+        android:id="@+id/imgSeeTrendingAlbums"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/see_all"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_marginTop="10dp"
+        android:id="@+id/viewPagerHotTrend"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        android:layout_below="@+id/txt5">
+
+    </androidx.viewpager.widget.ViewPager>
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gridViewTrendingAlbums"
+        android:visibility="gone" />
+    <GridView
+        android:layout_marginTop="@dimen/margin_basex2"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:id="@+id/gridViewTrendingSongs"
+        android:numColumns="3"
+        android:layout_below="@+id/imgSeeTrendingSongs"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/border"
+        android:layout_width="345dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/viewPagerHotTrend"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="3dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/border" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt6"
+        android:layout_below="@+id/border"
+        android:src="@drawable/trending_song"
+        android:layout_marginLeft="20dp"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_toRightOf="@+id/txt6"
+
+        android:layout_below="@+id/border"
+        android:src="@drawable/see_all"
+        android:layout_marginLeft="120dp"
+        android:id="@+id/imgSeeTrendingSongs"
+        android:layout_marginTop="12dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/txt6"
+        android:background="#FFF"
+        android:id="@+id/recycleViewSong"/>
+
+</RelativeLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout"
+            android:weightSum="9"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            >
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:id="@+id/btnSearch"
+
+            android:src="@drawable/search_button"
+
+            />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="7"
+                android:src="@drawable/logo_nit"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/user"/>
+        </LinearLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/edtSearch"
+
+
+            android:visibility="gone"/>
+<!--        <androidx.viewpager.widget.ViewPager-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:id="@+id/viewPagerMain"-->
+<!--            android:layout_below="@+id/linearLayout"-->
+<!--            />-->
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/linearLayout"
+            android:id="@+id/viewPagerMain"/>
+
+<!--        <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:layout_marginTop="5dp"-->
+
+
+<!--            android:id="@+id/indicatorMain"-->
+<!--            android:layout_centerHorizontal="true"-->
+
+<!--            app:spi_dotSelectedColor="#DD0168"-->
+
+<!--            android:layout_below="@+id/viewPagerMain"/>-->
+        <me.relex.circleindicator.CircleIndicator
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+
+            android:gravity="center"
+            android:id="@+id/indicatorMain"
+
+            app:ci_drawable="@drawable/custom_indicator"
+
+            android:layout_below="@+id/viewPagerMain"/>
+
+        <RelativeLayout
+            android:id="@+id/textxyz"
+            android:layout_width="401dp"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/indicatorMain" >
+        </RelativeLayout>
+        <com.ivorcho.snowfallview.SnowfallView
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:layout_below="@+id/btnSearch"
+
+            app:snowflake="@drawable/snowflake"
+            app:spawnRate="1000" />
+
+        <!--        <fragment-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/fragmentColor"-->
+<!--            android:name="com.example.appmusiconline.Fragment.Fragment_Color"-->
+<!--            android:layout_below="@id/indicatorMain"/>-->
+<!--        <fragment-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/indicatorMain"-->
+<!--            android:name="com.example.appmusiconline.Fragment.Fragment_hottrend"/>-->
+
+
+    </RelativeLayout>
+
+    
+
+</ScrollView>

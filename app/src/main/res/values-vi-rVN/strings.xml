@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppMusicOnline</string>
+    <string name="hottrend">Xu Hướng</string>
+    <string name="personal">Cá Nhân</string>
+    <string name="explore">Khám Phá</string>
+    <string name="songs">bài hát</string>
+    <string name="albums">albums</string>
+    <string name="playlists">danh sách nhạc</string>
+</resources>

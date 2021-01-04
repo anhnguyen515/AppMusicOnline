@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="3dp"
+        android:scaleType="fitXY"
+        android:id="@+id/imageSearchBaiHat" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="250dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:text="Ten bai hat"
+        android:textColor="#0a0a0a"
+        android:textSize="@dimen/song_name"
+        android:id="@+id/textViewSearchTenBaiHat"
+        android:layout_toRightOf="@+id/imageSearchBaiHat"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="7dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="250dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textColor="#0a0a0a"
+        android:text="Ten ca si"
+
+        android:textSize="@dimen/song_artist"
+        android:id="@+id/textViewSearchTenCasi"
+        android:layout_toRightOf="@+id/imageSearchBaiHat"
+        android:layout_below="@+id/textViewSearchTenBaiHat"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="7dp" />
+<!--    <ImageView-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:layout_centerVertical="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:src="@drawable/heart_empty"-->
+<!--        android:id="@+id/imageSearchluotthich" />-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+        android:id="@+id/textViewSearchTime"></TextView>
+
+</RelativeLayout>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:context=".Activity.MusicActivity">
+
+
+    <TextView
+        android:id="@+id/songTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:ellipsize = "marquee"
+        android:fadingEdge = "horizontal"
+        android:marqueeRepeatLimit = "marquee_forever"
+        android:scrollHorizontally = "true"
+        android:singleLine = "true"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/thumbnail" />
+
+    <ImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:padding="20dp"
+        android:src="@drawable/thumbnail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/close"
+        app:layout_constraintEnd_toEndOf="@+id/thumbnail"
+        app:layout_constraintTop_toTopOf="@+id/thumbnail" />
+
+    <ImageButton
+        android:id="@+id/playBtn"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/play"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/speakerMax"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/likeBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/white_like"
+        app:layout_constraintStart_toStartOf="@+id/prev10"
+        app:layout_constraintTop_toBottomOf="@+id/playBtn"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/nextSong"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/next_song_button"
+        app:layout_constraintBottom_toBottomOf="@+id/playBtn"
+        app:layout_constraintEnd_toStartOf="@+id/next10"
+        app:layout_constraintTop_toTopOf="@+id/playBtn"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/prevSong"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/back_song_button"
+        app:layout_constraintBottom_toBottomOf="@+id/playBtn"
+        app:layout_constraintStart_toEndOf="@+id/prev10"
+        app:layout_constraintTop_toTopOf="@+id/playBtn"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/repeatBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/repeat_off"
+        app:layout_constraintBottom_toBottomOf="@+id/shareBtn"
+        app:layout_constraintEnd_toStartOf="@+id/shareBtn"
+        app:layout_constraintTop_toTopOf="@+id/shareBtn"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/shareBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/share_button"
+        app:layout_constraintEnd_toEndOf="@+id/next10"
+        app:layout_constraintTop_toBottomOf="@+id/playBtn"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/timer"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector"
+        android:scaleType="fitCenter"
+        android:src="@drawable/clock1"
+        app:layout_constraintBottom_toBottomOf="@+id/speakerMax"
+        app:layout_constraintEnd_toStartOf="@+id/lyrics"
+        app:layout_constraintTop_toTopOf="@+id/speakerMax"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/lyrics"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/lyric"
+        android:background="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="@+id/timer"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintTop_toTopOf="@+id/timer"
+        app:layout_constraintVertical_bias="0.21"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/prev10"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/back_10s"
+        app:layout_constraintBottom_toBottomOf="@+id/prevSong"
+        app:layout_constraintStart_toStartOf="@+id/volumeBar"
+        app:layout_constraintTop_toTopOf="@+id/prevSong"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/next10"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:src="@drawable/next_10s"
+        android:background="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="@+id/nextSong"
+        app:layout_constraintEnd_toEndOf="@+id/lyrics"
+        app:layout_constraintTop_toTopOf="@+id/nextSong"
+        tools:ignore="MissingConstraints" />
+
+    <SeekBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:maxHeight="3dp"
+        android:minHeight="3dp"
+        android:progressDrawable="@drawable/seekbar_style"
+        android:thumb="@drawable/custom_thumb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/artist"
+        tools:ignore="MissingConstraints" />
+
+    <SeekBar
+        android:id="@+id/volumeBar"
+        android:layout_width="107dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:max="100"
+        android:maxHeight="3dp"
+        android:minHeight="3dp"
+        android:progressDrawable="@drawable/seekbar_style"
+        android:thumb="@drawable/custom_thumb"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/elapsed_time"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/speakerMax"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:padding="10dp"
+        android:src="@drawable/volume_max"
+        android:background="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="@+id/volumeBar"
+        app:layout_constraintStart_toEndOf="@+id/volumeBar"
+        app:layout_constraintTop_toTopOf="@+id/volumeBar" />
+
+    <ImageButton
+        android:id="@+id/shuffleBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/shuffle_off"
+        app:layout_constraintBottom_toBottomOf="@+id/likeBtn"
+        app:layout_constraintStart_toEndOf="@+id/likeBtn"
+        app:layout_constraintTop_toTopOf="@+id/likeBtn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/remaining_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <TextView
+        android:id="@+id/elapsed_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <TextView
+        android:id="@+id/artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Artist"
+        android:textSize="18sp"
+        android:ellipsize = "marquee"
+        android:fadingEdge = "horizontal"
+        android:marqueeRepeatLimit = "marquee_forever"
+        android:scrollHorizontally = "true"
+        android:singleLine = "true"
+        app:layout_constraintStart_toStartOf="@+id/songTitle"
+        app:layout_constraintTop_toBottomOf="@+id/songTitle" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
