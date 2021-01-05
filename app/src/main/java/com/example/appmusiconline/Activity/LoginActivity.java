@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,63 +21,64 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextView txtSkip , txtSignUp;
-    EditText edtUsername , edtPass ;
-    ImageView imageViewSubmit ;
-    public static boolean checkUser ;
+    TextView txtSignUp;
+    EditText edtUsername, edtPass;
+    ImageButton imageViewSubmit, imgSkip;
+    public static boolean checkUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mapping ();
-        txtSkip.setOnClickListener(new View.OnClickListener() {
+        mapping();
+        imgSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkUser = false ;
-                Intent intent = new Intent(LoginActivity.this , TrangchuActivity.class);
+                checkUser = false;
+                Intent intent = new Intent(LoginActivity.this, TrangchuActivity.class);
                 startActivity(intent);
             }
         });
         imageViewSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkuser(edtUsername.getText().toString() , edtPass.getText().toString());
+                checkUser(edtUsername.getText().toString(), edtPass.getText().toString());
 
             }
         });
         txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this , SignUpActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
 
             }
         });
     }
-    private void checkuser (String username , String password) {
+
+    private void checkUser(String username, String password) {
         DataService dataService = APIService.getService();
-        Call<String> callback = dataService.checkuser(username , password);
+        Call<String> callback = dataService.checkuser(username, password);
         callback.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 String a = response.body().trim();
-                Log.d("USER123" ,  a +"hello") ;
+                Log.d("USER123", a + "hello");
                 if (a.contains("THAT")) {
 
                     checkUser = false;
-                    Toast.makeText(LoginActivity.this, "Vui Long Dang Nhap Lai hoac skip", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    checkUser = true ;
-                    Intent intent = new Intent(LoginActivity.this , TrangchuActivity.class);
+                    Toast.makeText(LoginActivity.this, "Incorrect username or password.\nPlease try again or Skip.", Toast.LENGTH_SHORT).show();
+                } else {
+                    checkUser = true;
+                    Intent intent = new Intent(LoginActivity.this, TrangchuActivity.class);
                     startActivity(intent);
                 }
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Log.d("USER123" , "That bai") ;
+                Log.d("USER123", "That bai");
             }
         });
 
@@ -85,10 +86,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void mapping() {
-        txtSkip = (TextView) findViewById(R.id.txtSkip);
-        edtUsername = (EditText) findViewById(R.id.edtUsername) ;
-        edtPass = (EditText) findViewById(R.id.edtPass) ;
-        imageViewSubmit = (ImageView) findViewById(R.id.imageviewSubmit);
-        txtSignUp = (TextView) findViewById(R.id.textViewSignUp) ;
+        imgSkip = findViewById(R.id.imgSkip);
+        edtUsername = findViewById(R.id.edtUsername);
+        edtPass = findViewById(R.id.edtPass);
+        imageViewSubmit = findViewById(R.id.imageviewSubmit);
+        txtSignUp = findViewById(R.id.textViewSignUp);
     }
 }

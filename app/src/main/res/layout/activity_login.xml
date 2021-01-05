@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imgUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="64dp"
         android:src="@drawable/user"
         app:layout_constraintHorizontal_bias="0.536"
@@ -17,16 +17,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtSkip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Skip >>"
-        android:textColor="#fff"
-        android:textSize="25sp"
-        android:textStyle="bold"
+    <ImageButton
+        android:id="@+id/imgSkip"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector"
+        android:padding="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/skip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +39,7 @@
         android:layout_marginTop="16dp"
         android:text="Login to"
         android:textColor="#1B1B1B"
-        android:textSize="45sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgUser" />
@@ -47,35 +48,36 @@
         android:id="@+id/txt4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text=" Nit"
-        android:textColor="#FFF"
-        android:textSize="45sp"
+        android:textColor="@color/white"
+        android:textSize="40sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txt3"
         app:layout_constraintStart_toEndOf="@+id/txt3"
-        app:layout_constraintTop_toBottomOf="@+id/imgUser" />
-
+        app:layout_constraintTop_toTopOf="@+id/txt3" />
 
 
     <ImageView
         android:id="@+id/imgUser1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="104dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:padding="10dp"
         android:src="@drawable/user_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgUser" />
+        app:layout_constraintTop_toBottomOf="@+id/txt3" />
+
     <EditText
         android:id="@+id/edtUsername"
         android:layout_width="282dp"
         android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-
+        android:layout_marginStart="8dp"
         android:background="@drawable/custom_edt_login"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgUser1"
         app:layout_constraintStart_toEndOf="@+id/imgUser1"
-        app:layout_constraintTop_toBottomOf="@+id/txt3" />
+        app:layout_constraintTop_toTopOf="@+id/imgUser1" />
 
 
     <ImageView
@@ -91,40 +93,46 @@
 
     <ImageView
         android:id="@+id/imgLock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="24dp"
+        android:padding="10dp"
         android:src="@drawable/lock"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgUser" />
+        app:layout_constraintTop_toBottomOf="@+id/edtUsername" />
 
     <EditText
         android:id="@+id/edtPass"
         android:layout_width="225dp"
         android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/custom_edt_login"
         android:ems="10"
         android:inputType="textPassword"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgLock"
         app:layout_constraintStart_toEndOf="@+id/imgLock"
-        app:layout_constraintTop_toBottomOf="@+id/edtUsername" />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="36dp"
-        android:src="@drawable/right_arrow"
+        app:layout_constraintTop_toTopOf="@+id/imgLock" />
+
+    <ImageButton
         android:id="@+id/imageviewSubmit"
-        app:layout_constraintStart_toEndOf="@+id/edtPass"
-        app:layout_constraintTop_toBottomOf="@+id/edtUsername" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:background="@drawable/selector"
+        android:src="@drawable/right_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/edtPass"
+        app:layout_constraintEnd_toEndOf="@+id/edtUsername"
+        app:layout_constraintTop_toTopOf="@+id/edtPass" />
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:textColor="#1B1B1B"
         android:text="Forgot password?"
+        android:textColor="#1B1B1B"
         android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"

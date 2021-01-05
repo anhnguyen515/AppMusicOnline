@@ -26,8 +26,8 @@
 
     <ImageView
         android:id="@+id/imgLogoNit_1"
-        android:layout_width="269dp"
-        android:layout_height="375dp"
+        android:layout_width="292dp"
+        android:layout_height="405dp"
         android:layout_marginTop="44dp"
         android:scaleType="fitXY"
         android:src="@drawable/logo_nit_1"

@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/imgLogoNit_2"
-        android:layout_width="100dp"
-        android:layout_height="375dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="110dp"
+        android:layout_height="395dp"
+        android:layout_marginTop="49dp"
         android:scaleType="fitXY"
         android:src="@drawable/logo_nit_2"
         app:layout_constraintStart_toStartOf="parent"
