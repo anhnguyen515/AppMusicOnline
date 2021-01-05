@@ -1,47 +1,39 @@
 package com.example.appmusiconline.Fragment;
 
-import android.content.Intent;
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
-
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.appmusiconline.Activity.LoginActivity;
-
 import com.example.appmusiconline.Adapter.MainAdapter;
-
 import com.example.appmusiconline.R;
-import com.example.appmusiconline.Service.APIRetrofitClient;
-import com.example.appmusiconline.Service.APIService;
-import com.example.appmusiconline.Service.DataService;
+import com.ivorcho.snowfallview.SnowfallView;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-
+import pl.droidsonroids.gif.GifImageView;
 
 
 public class Fragment_Album extends Fragment {
@@ -49,8 +41,14 @@ public class Fragment_Album extends Fragment {
     CircleIndicator circleIndicatorMain ;
     ViewPager viewPagerMain ;
     Fragment ft1 , ft2 ;
-    ImageView btnSearch ;
+    ImageView btnSearch , imgViewAvatar;
     EditText edtSearch ;
+    SnowfallView snow ;
+    ScrollView scrollView ;
+    ImageView imgViewBaolixi ;
+
+
+
 
 
 
@@ -58,7 +56,70 @@ public class Fragment_Album extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_album , container , false );
+        final ArrayList<Integer> gifImages = new ArrayList<>();
+        gifImages.add(R.drawable.tet) ;
+        gifImages.add(R.drawable.tet1) ;
+        gifImages.add(R.drawable.tet2);
+        gifImages.add(R.drawable.tet3) ;
+        gifImages.add(R.drawable.tet4) ;
         mapping();
+        Log.d("CHECKUSER" , LoginActivity.checkUser + "");
+        if (LoginActivity.checkUser)  imgViewAvatar.setImageResource(R.drawable.avatar);
+        else imgViewAvatar.setImageResource(R.drawable.user);
+//        final Animation animationAlpha = AnimationUtils.loadAnimation(getActivity(),R.anim.animation_rotate);
+//        final Animation animationScale = AnimationUtils.loadAnimation(getActivity(),R.anim.animation_scale);
+//        imgViewBaolixi.startAnimation(animationAlpha);
+        imgViewBaolixi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                v.startAnimation(animationScale);
+                final Dialog settingsDialog = new Dialog(getActivity());
+                settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
+
+                settingsDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                settingsDialog.setContentView(getLayoutInflater().inflate(R.layout.image_layout , null));
+                GifImageView gifImageView = settingsDialog.findViewById(R.id.gifImageViewTet) ;
+                Collections.shuffle(gifImages);
+             //   gifImageView.setBackgroundResource(gifImages.get(0));
+                gifImageView.setImageResource(gifImages.get(0));
+                settingsDialog.show();
+                Button btn = settingsDialog.findViewById(R.id.btnDialog);
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        settingsDialog.dismiss();
+                    }
+                });
+
+            }
+        });
+        scrollView.setOnTouchListener(new View.OnTouchListener() {
+            private GestureDetector gestureDetector = new GestureDetector(getActivity(), new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onDoubleTap(MotionEvent e) {
+                    Log.d("TEST", "onDoubleTap");
+                    if(snow.getVisibility() == View.VISIBLE)
+                        snow.setVisibility(View.GONE);
+                    else snow.setVisibility(View.VISIBLE);
+                    return super.onDoubleTap(e);
+                }
+                @Override
+                public boolean onSingleTapConfirmed(MotionEvent event) {
+                    Log.d("TEST", "onSingleTap");
+                    return false;
+                }
+            });
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                gestureDetector.onTouchEvent(event);
+                return true;
+            }
+
+
+        });
 
         ArrayList<String> arr_String = new ArrayList<>();
         String hottrends = getResources().getString(R.string.hottrend) ;
@@ -73,6 +134,8 @@ public class Fragment_Album extends Fragment {
         MainAdapter mainAdapter = new MainAdapter(getActivity() , arr_String);
         viewPagerMain.setAdapter(mainAdapter);
         circleIndicatorMain.setViewPager(viewPagerMain);
+
+
 
 
         // add fragment into a fragment
@@ -137,7 +200,10 @@ public class Fragment_Album extends Fragment {
         return view;
     }
 
+    private void dismissListener() {
+        Toast.makeText(getActivity(), "NNNNNNNNN", Toast.LENGTH_SHORT).show();
 
+    }
 
     private void mapping() {
 
@@ -148,6 +214,10 @@ public class Fragment_Album extends Fragment {
 
         btnSearch = view.findViewById(R.id.btnSearch);
         edtSearch = view.findViewById(R.id.edtSearch);
+        snow = view.findViewById(R.id.snowfall);
+        scrollView = view.findViewById(R.id.scrollViewAlumHottrend);
+        imgViewBaolixi = view.findViewById(R.id.imageViewBaolixi);
+        imgViewAvatar = view.findViewById(R.id.imageViewAvatar) ;
 
 
 

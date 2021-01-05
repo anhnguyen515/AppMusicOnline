@@ -1,0 +1,43 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:background="@drawable/corner_dialog"-->
+<!--    android:orientation="vertical">-->
+<!--    <pl.droidsonroids.gif.GifImageView-->
+<!--        android:id="@+id/gifImageViewTet"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="300dp"-->
+<!--        />-->
+<!--&lt;!&ndash;    <ImageView android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content" android:src="@drawable/baolixi"/>&ndash;&gt;-->
+<!--    <Button android:layout_width="300dp" android:layout_height="wrap_content"-->
+<!--        android:text="OK" android:id="@+id/btnDialog"-->
+<!--        android:layout_below="@+id/gifImageViewTet"-->
+<!--        android:background="@drawable/corner_button"/>-->
+<!--</RelativeLayout>-->
+<FrameLayout
+    android:layout_width="match_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_marginTop="9dp"
+    android:background="@drawable/corner_dialog"
+    android:padding="5dp">
+
+    <Button
+        android:id="@+id/btnDialog"
+        android:layout_width="57dp"
+        android:layout_height="56dp"
+        android:layout_marginLeft="250dp"
+
+
+        android:background="@drawable/close" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageViewTet"
+        android:layout_width="269dp"
+        android:layout_height="275dp"
+        android:layout_marginTop="35dp" />
+
+
+
+</FrameLayout>

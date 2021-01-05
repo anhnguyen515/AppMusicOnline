@@ -1,6 +1,5 @@
 package com.example.appmusiconline.Service;
 
-import com.example.appmusiconline.Model.Album;
 import com.example.appmusiconline.Model.AlbumAndArtist;
 import com.example.appmusiconline.Model.PersonalAlbum;
 import com.example.appmusiconline.Model.PersonalPlaylist;
@@ -24,7 +23,14 @@ public interface DataService {
     Call<List<SongAndArtist>> getSong();
     @FormUrlEncoded
     @POST("getsongXX.php")
-    Call<List<SongAndArtist>> getSongXX (@Field("tukhoa") String tukhoa) ;
+    Call<List<SongAndArtist>> getSongXX(@Field("tukhoa") String tukhoa) ;
+
+    @FormUrlEncoded
+    @POST("checkuser.php")
+    Call<String> checkuser(@Field("username") String username, @Field("password") String password) ;
+    @FormUrlEncoded
+    @POST("createuser.php")
+    Call<String> createuser(@Field("username") String username, @Field("password") String password) ;
     @GET("personal_song.php")
     Call<List<PersonalSong>> getPersonalSong();
 

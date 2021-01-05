@@ -10,5 +10,6 @@
     <dimen name="text_medium">18sp</dimen>
     <dimen name="text_large">20sp</dimen>
     <dimen name="list_size">600dp</dimen>
+    <dimen name="margin_top_image">325dp</dimen>
 
 </resources>
