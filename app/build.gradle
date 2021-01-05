@@ -21,6 +21,7 @@ android {
         }
     }
 
+
 }
 
 dependencies {
@@ -49,6 +50,11 @@ dependencies {
     implementation 'com.github.ivorcho:SnowfallView:1.0'
 
     implementation 'com.android.support:appcompat-v7:+'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.0'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+
 
 
 }

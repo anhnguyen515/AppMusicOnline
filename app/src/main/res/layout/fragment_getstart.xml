@@ -77,8 +77,8 @@
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:snowflake="@drawable/snowflake"
-        app:spawnRate="1000" />
+        app:snowflake="@drawable/baolixi"
+        app:spawnRate="500" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
