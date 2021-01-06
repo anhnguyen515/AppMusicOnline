@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     EditText edtFirstName , edtLastName , edtEmail , edtRepeatPassword , edtPassword ;
     ImageView btnFisnish ;
+    ImageButton btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +34,8 @@ public class SignUpActivity extends AppCompatActivity {
         btnFisnish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edtEmail.getText().toString() == "" && edtPassword.getText().toString() == "" &&
-                        edtPassword.getText().toString() != edtRepeatPassword.getText().toString() ) {
+                if (edtEmail.getText().toString().length() == 0 || edtPassword.getText().toString().length() == 0 ||
+                        !edtPassword.getText().toString().equals(edtRepeatPassword.getText().toString())) {
                     Toast.makeText(SignUpActivity.this, "Please check forms again", Toast.LENGTH_SHORT).show();
                 }
                 else {
@@ -45,6 +47,15 @@ public class SignUpActivity extends AppCompatActivity {
             }
 
 
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.anim_enter_left, R.anim.anim_exit_right);
+            }
         });
     }
 
@@ -72,5 +83,6 @@ public class SignUpActivity extends AppCompatActivity {
         edtRepeatPassword = (EditText) findViewById(R.id.againpassword) ;
         edtPassword = (EditText) findViewById(R.id.password) ;
         btnFisnish = (ImageView) findViewById(R.id.btnFinish);
+        btnBack = findViewById(R.id.btnBack);
     }
 }

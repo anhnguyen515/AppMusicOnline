@@ -167,6 +167,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/selector"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/left_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFinish"
+        app:layout_constraintStart_toStartOf="@+id/rewrite"
+        app:layout_constraintTop_toTopOf="@+id/btnFinish" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

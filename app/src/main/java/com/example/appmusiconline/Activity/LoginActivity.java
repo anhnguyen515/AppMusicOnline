@@ -65,14 +65,18 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 String a = response.body().trim();
                 Log.d("USER123", a + "hello");
-                if (a.contains("THAT")) {
-
-                    checkUser = false;
+                if (edtUsername.getText().toString().trim().length() == 0 || edtPass.getText().toString().trim().length() == 0) {
                     Toast.makeText(LoginActivity.this, "Incorrect username or password.\nPlease try again or Skip.", Toast.LENGTH_SHORT).show();
                 } else {
-                    checkUser = true;
-                    Intent intent = new Intent(LoginActivity.this, TrangchuActivity.class);
-                    startActivity(intent);
+                    if (a.contains("THAT")) {
+
+                        checkUser = false;
+                        Toast.makeText(LoginActivity.this, "Incorrect username or password.\nPlease try again or Skip.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        checkUser = true;
+                        Intent intent = new Intent(LoginActivity.this, TrangchuActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
 
