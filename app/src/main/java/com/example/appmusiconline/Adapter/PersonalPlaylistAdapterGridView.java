@@ -20,8 +20,8 @@ import java.util.ArrayList;
 
 public class PersonalPlaylistAdapterGridView extends BaseAdapter {
     Context context;
-    int layout;
-    ArrayList<PersonalSong> arr_personal_playlist;
+    int layout ;
+    ArrayList<PersonalSong> arr_personal_playlist ;
 
     public PersonalPlaylistAdapterGridView(Context context, int layout, ArrayList<PersonalSong> arr_personal_playlist) {
         this.context = context;
@@ -43,25 +43,24 @@ public class PersonalPlaylistAdapterGridView extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
-
     public class ViewHolder {
-        ImageView imgSong;
-        TextView txtName, txtArtist;
+        ImageView imgSong ;
+        TextView txtName , txtArtist ,txtTime  ;
 
     }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        ViewHolder holder ;
 
-        holder = new ViewHolder();
+        holder = new ViewHolder() ;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         // convertView sẽ chứa layout nào sẽ hiển thị mỗi dòng
-        convertView = inflater.inflate(layout, null);
+        convertView = inflater.inflate(layout,null);
 
-        ImageView imgSong = (ImageView) convertView.findViewById(R.id.imgPersonalPlaylist);
-        TextView txtName = (TextView) convertView.findViewById(R.id.txtPersonalPlaylistName);
-        TextView txtArtist = (TextView) convertView.findViewById(R.id.txtPersonalPlaylistSum);
+        ImageView imgSong  = (ImageView) convertView.findViewById(R.id.imgPersonalPlaylist) ;
+        TextView txtName = (TextView) convertView.findViewById(R.id.txtPersonalPlaylistName) ;
+        TextView txtArtist = (TextView) convertView.findViewById(R.id.txtPersonalPlaylistSum) ;
+//        TextView txtTime = (TextView) convertView.findViewById(R.id.txtPersonalPlaylistTime);
 
         txtName.setSelected(true);
         txtArtist.setSelected(true);

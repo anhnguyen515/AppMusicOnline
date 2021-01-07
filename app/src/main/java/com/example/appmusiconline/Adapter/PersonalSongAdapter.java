@@ -2,6 +2,7 @@ package com.example.appmusiconline.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.appmusiconline.Activity.MainActivity;
 import com.example.appmusiconline.Activity.MusicActivity;
@@ -18,6 +20,7 @@ import com.example.appmusiconline.Model.PersonalSong;
 import com.example.appmusiconline.R;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class PersonalSongAdapter extends BaseAdapter {

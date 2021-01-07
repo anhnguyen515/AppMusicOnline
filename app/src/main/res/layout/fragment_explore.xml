@@ -15,17 +15,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="6" >
-    <TextView
+        <ImageView
 
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="4"
-        android:id="@+id/imgExploreNewestSong"
-        android:text="Trending Songs"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:gravity="center"/>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:id="@+id/imgExploreNewestSong"
+            android:src="@drawable/trending_song"/>
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
