@@ -15,7 +15,8 @@
             android:layout_height="wrap_content"
             android:text="Recent Play"
             android:textSize="24dp"
-            android:layout_weight="4"
+            android:textColor="@color/black"
+            android:layout_weight="3"
             android:gravity="center"
             android:textStyle="bold"
             />
@@ -35,8 +36,15 @@
             android:id="@+id/imgPersonalSort"
             android:layout_weight="1"
             android:background="@drawable/selector"
-            android:src="@drawable/grid"
-            />
+            android:src="@drawable/grid" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:id="@+id/imgPersonalRefresh"
+            android:layout_weight="1"
+            android:background="@drawable/selector"
+            android:src="@drawable/refresh" />
     </LinearLayout>
     <com.google.android.material.tabs.TabLayout
         android:layout_below="@+id/linearTop"

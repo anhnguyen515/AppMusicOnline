@@ -50,12 +50,10 @@ public class Fragment_personal_album extends Fragment {
                 if(lvPersonalAlbum.getVisibility() == View.VISIBLE) {
                     lvPersonalAlbum.setVisibility(View.GONE);
                     gridView.setVisibility(View.VISIBLE);
-                    Fragment_personal.imgPersonalSort.setImageResource(R.drawable.grid_white);
                 }
                 else {
                     lvPersonalAlbum.setVisibility(View.VISIBLE);
                     gridView.setVisibility(View.GONE);
-                    Fragment_personal.imgPersonalSort.setImageResource(R.drawable.grid);
                 }
             }
         });

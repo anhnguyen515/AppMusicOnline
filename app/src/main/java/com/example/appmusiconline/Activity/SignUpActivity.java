@@ -34,7 +34,10 @@ public class SignUpActivity extends AppCompatActivity {
         btnFisnish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edtEmail.getText().toString().length() == 0 || edtPassword.getText().toString().length() == 0 ||
+                if (edtEmail.getText().toString().length() == 0 ||
+                        edtPassword.getText().toString().length() == 0 ||
+                        edtFirstName.getText().toString().length() == 0 ||
+                        edtLastName.getText().toString().length() == 0 ||
                         !edtPassword.getText().toString().equals(edtRepeatPassword.getText().toString())) {
                     Toast.makeText(SignUpActivity.this, "Invalid information. Please check again.", Toast.LENGTH_SHORT).show();
                 }

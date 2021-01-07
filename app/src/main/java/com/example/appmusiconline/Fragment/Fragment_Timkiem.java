@@ -64,16 +64,6 @@ public class Fragment_Timkiem extends Fragment {
         return view ;
     }
 
-//    @Override
-//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-//        inflater.inflate(R.menu.search_view , menu);
-//        MenuItem menuItem = menu.findItem(R.id.menu_search);
-//        SearchView searchView = (SearchView) menuItem.getActionView();
-//
-//
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
-
     private void mapping() {
 
         recyclerViewSearch = (RecyclerView) view.findViewById(R.id.recycleViewSearch) ;
