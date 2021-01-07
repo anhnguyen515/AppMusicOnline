@@ -9,7 +9,7 @@
         app:cardCornerRadius="20dp"
         android:id="@+id/cardView"
         android:background="@drawable/shadow_image"
-        android:layout_marginLeft="20dp">
+        android:layout_marginStart="20dp">
 
             <ImageView
 
@@ -17,10 +17,11 @@
                 android:layout_width="350dp"
                 android:layout_height="150dp"
                 android:elevation="12dp"
+                android:paddingBottom="3dp"
                 android:background="@drawable/shadow_image"
                 android:src="@drawable/ic_launcher_background"
 
-                android:scaleType="fitXY" />
+                android:scaleType="fitCenter" />
 
     </androidx.cardview.widget.CardView>
 

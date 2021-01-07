@@ -2,6 +2,7 @@ package com.example.appmusiconline.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +18,19 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.appmusiconline.Adapter.PersonalPlaylistAdapter;
 import com.example.appmusiconline.Adapter.PersonalPlaylistAdapterGridView;
 import com.example.appmusiconline.DataBase.PlayListOperations;
+import com.example.appmusiconline.Model.PersonalPlaylist;
 import com.example.appmusiconline.Model.PersonalSong;
 import com.example.appmusiconline.R;
+import com.example.appmusiconline.Service.APIService;
+import com.example.appmusiconline.Service.DataService;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Fragment_personal_playlist extends Fragment {
 
@@ -93,6 +103,7 @@ public class Fragment_personal_playlist extends Fragment {
 //
 //
 //            }
+//
 //
 //            @Override
 //            public void onFailure(Call<List<PersonalPlaylist>> call, Throwable t) {

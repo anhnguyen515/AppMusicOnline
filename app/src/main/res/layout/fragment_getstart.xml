@@ -69,16 +69,14 @@
         android:layout_marginBottom="12dp"
         android:src="@drawable/bar_1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt2"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintStart_toStartOf="parent" />
     <com.ivorcho.snowfallview.SnowfallView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:snowflake="@drawable/baolixi"
-        app:spawnRate="500" />
+        app:spawnRate="2000" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

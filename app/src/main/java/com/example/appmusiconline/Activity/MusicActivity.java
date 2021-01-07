@@ -57,6 +57,7 @@ public class MusicActivity extends AppCompatActivity {
 
         intent = getIntent();
         bundle = intent.getBundleExtra("darkwa");
+        assert bundle != null;
         sizeArray = bundle.getInt("darkwa1");
         for (int i = 0; i < sizeArray; i++) {
             PersonalSong song = (PersonalSong) bundle.getSerializable("song" + i);
@@ -310,7 +311,7 @@ public class MusicActivity extends AppCompatActivity {
                             position = 0;
                             prepareMediaPlayer(position);
                         } else {
-                            Toast.makeText(MusicActivity.this, "PlayList Ended!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MusicActivity.this, "End of playlist", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

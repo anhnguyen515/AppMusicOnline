@@ -94,10 +94,10 @@
         <com.ivorcho.snowfallview.SnowfallView
             android:layout_width="match_parent"
             android:layout_height="700dp"
-            android:layout_below="@+id/btnSearch"
+            android:layout_alignParentStart="true"
             android:id="@+id/snowfall"
             app:snowflake="@drawable/hoamai"
-            app:spawnRate="1000" />
+            app:spawnRate="2000" />
 <!--        <ImageView-->
 <!--            android:id="@+id/imageViewBaolixi"-->
 <!--            android:layout_width="80dp"-->
@@ -108,9 +108,9 @@
 <!--            app:srcCompat="@drawable/baolixi" />-->
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/imageViewBaolixi"
-            android:layout_width="80dp"
+            android:layout_width="50dp"
             android:layout_marginTop="@dimen/margin_top_image"
-            android:layout_height="80dp"
+            android:layout_height="50dp"
             android:src="@drawable/lixi"/>
 
         <!--        <fragment-->

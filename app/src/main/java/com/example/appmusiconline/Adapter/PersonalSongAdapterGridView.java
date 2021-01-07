@@ -22,8 +22,8 @@ import java.util.ArrayList;
 
 public class PersonalSongAdapterGridView extends BaseAdapter {
     Context context;
-    int layout ;
-    ArrayList<PersonalSong> arr_personal_song ;
+    int layout;
+    ArrayList<PersonalSong> arr_personal_song;
 
     public PersonalSongAdapterGridView(Context context, int layout, ArrayList<PersonalSong> arr_personal_song) {
         this.context = context;
@@ -45,23 +45,25 @@ public class PersonalSongAdapterGridView extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
+
     public class ViewHolder {
-        ImageView imgSong ;
-        TextView txtName , txtArtist  ;
+        ImageView imgSong;
+        TextView txtName, txtArtist;
 
     }
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        ViewHolder holder ;
+        ViewHolder holder;
 
-        holder = new ViewHolder() ;
+        holder = new ViewHolder();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         // convertView sẽ chứa layout nào sẽ hiển thị mỗi dòng
-        convertView = inflater.inflate(layout,null);
+        convertView = inflater.inflate(layout, null);
 
-        ImageView imgSong  = (ImageView) convertView.findViewById(R.id.imgPersonalSong) ;
-        TextView txtName = (TextView) convertView.findViewById(R.id.txtPersonalSongName) ;
-        TextView txtArtist = (TextView) convertView.findViewById(R.id.txtPersonalSongArtist) ;
+        ImageView imgSong = (ImageView) convertView.findViewById(R.id.imgPersonalSong);
+        TextView txtName = (TextView) convertView.findViewById(R.id.txtPersonalSongName);
+        TextView txtArtist = (TextView) convertView.findViewById(R.id.txtPersonalSongArtist);
 
         txtName.setSelected(true);
         txtArtist.setSelected(true);
@@ -79,18 +81,17 @@ public class PersonalSongAdapterGridView extends BaseAdapter {
                 MainActivity.initMediaPlayer();
 
                 // man hinh play nhac
-                Intent intent = new Intent(context, MusicActivity.class) ;
+                Intent intent = new Intent(context, MusicActivity.class);
                 Bundle bundle = new Bundle();
                 //dong goi lan luot tung song
-                for(int i=0; i<arr_personal_song.size();i++)
-                {
+                for (int i = 0; i < arr_personal_song.size(); i++) {
                     PersonalSong song = arr_personal_song.get(i);
-                    bundle.putSerializable("song"+i, song);
+                    bundle.putSerializable("song" + i, song);
                 }
                 //dong goi size
-                bundle.putInt("darkwa1",arr_personal_song.size());
+                bundle.putInt("darkwa1", arr_personal_song.size());
                 //dong goi potition
-                bundle.putInt("darkwa2",position);
+                bundle.putInt("darkwa2", position);
 
                 //  bundle.put
                 intent.putExtra("darkwa", bundle);

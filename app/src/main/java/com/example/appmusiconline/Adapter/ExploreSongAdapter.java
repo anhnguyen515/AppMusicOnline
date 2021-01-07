@@ -15,6 +15,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.appmusiconline.Activity.MainActivity;
 import com.example.appmusiconline.Activity.MusicActivity;
 import com.example.appmusiconline.Model.PersonalSong;
 import com.example.appmusiconline.R;
@@ -53,7 +54,7 @@ public class ExploreSongAdapter extends BaseAdapter {
 
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder ;
 
         holder = new ViewHolder() ;
@@ -78,11 +79,24 @@ public class ExploreSongAdapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MainActivity.mediaPlayer.release();
+                MainActivity.initMediaPlayer();
+
                 // man hinh play nhac
-                Intent intent = new Intent(context, MusicActivity.class) ;
+                Intent intent = new Intent(context, MusicActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("darkwa", object);
-                intent.putExtra("darkwa1", bundle);
+                //dong goi lan luot tung song
+                for (int i = 0; i < arr_personal_song.size(); i++) {
+                    PersonalSong song = arr_personal_song.get(i);
+                    bundle.putSerializable("song" + i, song);
+                }
+                //dong goi size
+                bundle.putInt("darkwa1", arr_personal_song.size());
+                //dong goi potition
+                bundle.putInt("darkwa2", position);
+
+                //  bundle.put
+                intent.putExtra("darkwa", bundle);
                 context.startActivity(intent);
             }
         });
