@@ -1,9 +1,6 @@
 package com.example.appmusiconline.Adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,7 +62,6 @@ public class SearchAdapter extends  RecyclerView.Adapter<SearchAdapter.ViewHolde
 //
 //            imgluotthich.setTag(R.drawable.heart_empty);
             txtTime = itemView.findViewById(R.id.textViewSearchTime);
-
 
 
             itemView.setOnClickListener(new View.OnClickListener() {

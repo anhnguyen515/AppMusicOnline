@@ -36,7 +36,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (edtEmail.getText().toString().length() == 0 || edtPassword.getText().toString().length() == 0 ||
                         !edtPassword.getText().toString().equals(edtRepeatPassword.getText().toString())) {
-                    Toast.makeText(SignUpActivity.this, "Please check forms again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Invalid information. Please check again.", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     createUser(edtEmail.getText().toString() , edtPassword.getText().toString());

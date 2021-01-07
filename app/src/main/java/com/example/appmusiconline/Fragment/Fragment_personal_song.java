@@ -36,7 +36,6 @@ public class Fragment_personal_song extends Fragment {
     GridView gridView ;
     PersonalSongAdapter adapter ;
     PersonalSongAdapterGridView adapterGridView ;
-    public  static  int i = 0 ;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -70,7 +69,6 @@ public class Fragment_personal_song extends Fragment {
             public void onResponse(Call<List<PersonalSong>> call, Response<List<PersonalSong>> response) {
 
                 ArrayList<PersonalSong> songArrayList = (ArrayList<PersonalSong>) response.body();
-                Collections.shuffle(songArrayList);
                 adapterGridView = new PersonalSongAdapterGridView(getActivity() , R.layout.dong_song_personal_gridview , songArrayList);
                 gridView.setAdapter(adapterGridView);
                 adapter = new PersonalSongAdapter(getActivity(), R.layout.dong_song_personal, songArrayList);
@@ -91,7 +89,7 @@ public class Fragment_personal_song extends Fragment {
     }
 
     private void mapping() {
-       lvPersonalSong = (ListView) view.findViewById(R.id.lvPersonalSong) ;
-       gridView = (GridView) view.findViewById(R.id.personalGridView);
+        lvPersonalSong = (ListView) view.findViewById(R.id.lvPersonalSong) ;
+        gridView = (GridView) view.findViewById(R.id.personalGridView);
     }
 }

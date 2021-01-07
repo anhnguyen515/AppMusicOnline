@@ -24,6 +24,15 @@ public class PersonalSong implements Serializable {
     @SerializedName("linkSong")
     @Expose
     private String linkSong;
+
+    public PersonalSong(String nameSong, String artistSong, String imageSong, String timeSong, String linkSong)
+    {
+        this.nameSong = nameSong;
+        this.artistSong = artistSong;
+        this.imageSong = imageSong;
+        this.timeSong = timeSong;
+        this.linkSong = linkSong;
+    }
 }
 //public class PersonalSong implements Serializable {
 //

@@ -21,9 +21,9 @@ import java.util.ArrayList;
 public class PersonalPlaylistAdapterGridView extends BaseAdapter {
     Context context;
     int layout ;
-    ArrayList<PersonalPlaylist> arr_personal_playlist ;
+    ArrayList<PersonalSong> arr_personal_playlist ;
 
-    public PersonalPlaylistAdapterGridView(Context context, int layout, ArrayList<PersonalPlaylist> arr_personal_playlist) {
+    public PersonalPlaylistAdapterGridView(Context context, int layout, ArrayList<PersonalSong> arr_personal_playlist) {
         this.context = context;
         this.layout = layout;
         this.arr_personal_playlist = arr_personal_playlist;
@@ -64,12 +64,12 @@ public class PersonalPlaylistAdapterGridView extends BaseAdapter {
 
         txtName.setSelected(true);
         txtArtist.setSelected(true);
-        PersonalPlaylist object = arr_personal_playlist.get(position);
+        PersonalSong object = arr_personal_playlist.get(position);
 
 
-        Picasso.with(context).load(object.getImagePlaylist()).into(imgSong);
-        txtName.setText(object.getNamePlaylist());
-        txtArtist.setText(object.getSumPlayList());
+        Picasso.with(context).load(object.getImageSong()).into(imgSong);
+        txtName.setText(object.getNameSong());
+        txtArtist.setText(object.getArtistSong());
 //        txtTime.setText(object.getTimePlaylist());
 
 //

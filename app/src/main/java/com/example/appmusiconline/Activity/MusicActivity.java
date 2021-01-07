@@ -14,9 +14,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
+import com.example.appmusiconline.DataBase.PlayListOperations;
 import com.example.appmusiconline.Model.PersonalSong;
 import com.example.appmusiconline.R;
 import com.squareup.picasso.Picasso;
@@ -31,10 +35,16 @@ public class MusicActivity extends AppCompatActivity {
     ImageButton btnClose;
     AudioManager audioManager;
     Handler handler = new Handler();
-
+    ArrayList<PersonalSong> arrayList = new ArrayList<>();
+    int sizeArray;
+    int position;
+    int flagRepeat = 1;
     Intent intent;
-    Bundle bundle ;
-    PersonalSong arraySong ;
+    Bundle bundle;
+    PersonalSong arraySong;
+    boolean repeatList = false, shuffle = false, checkFav = false;
+    PlayListOperations playListOperations;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,15 +52,21 @@ public class MusicActivity extends AppCompatActivity {
 
         mapping();
         progressBar.setMax(100);
-
-        intent = getIntent() ;
-        bundle = intent.getBundleExtra("darkwa1");
-        arraySong = (PersonalSong) bundle.getSerializable("darkwa");
         txtTitle.setSelected(true);
         txtArtist.setSelected(true);
 
+        intent = getIntent();
+        bundle = intent.getBundleExtra("darkwa");
+        sizeArray = bundle.getInt("darkwa1");
+        for (int i = 0; i < sizeArray; i++) {
+            PersonalSong song = (PersonalSong) bundle.getSerializable("song" + i);
+            arrayList.add(song);
+        }
+
+        position = bundle.getInt("darkwa2");
+
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        prepareMediaPlayer();
+        prepareMediaPlayer(position);
 
         //nhấn nút play
         btnPlay.setOnClickListener(new View.OnClickListener() {
@@ -108,10 +124,92 @@ public class MusicActivity extends AppCompatActivity {
             }
         });
 
-        MainActivity.mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        btnRepeat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                btnPlay.setImageResource(R.drawable.play);
+            public void onClick(View view) {
+                if (flagRepeat == 1) {
+                    flagRepeat = 2;
+                    repeatList = true;
+                    btnRepeat.setImageResource(R.drawable.repeat_on);
+                } else if (flagRepeat == 2) {
+                    flagRepeat = 3;
+                    repeatList = false;
+                    btnRepeat.setImageResource(R.drawable.repeat_one);
+                    MainActivity.mediaPlayer.setLooping(true);
+                } else {
+                    flagRepeat = 1;
+                    btnRepeat.setImageResource(R.drawable.repeat_off);
+                    MainActivity.mediaPlayer.setLooping(false);
+                }
+            }
+        });
+
+        btnNextSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (position + 1 < arrayList.size()) {
+                    prepareMediaPlayer(position + 1);
+                    position += 1;
+                } else {
+                    if (repeatList) {
+                        position = 0;
+                        prepareMediaPlayer(position);
+                    } else {
+                        Toast.makeText(MusicActivity.this, "End of playlist", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+        btnPrevSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (position - 1 > -1) {
+                    prepareMediaPlayer(position - 1);
+                    position -= 1;
+                } else {
+                    position = arrayList.size() - 1;
+                    prepareMediaPlayer(position);
+                }
+            }
+        });
+
+        btnShuffle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (shuffle) {
+                    btnShuffle.setImageResource(R.drawable.shuffle_off);
+                    arrayList.clear();
+                    for (int i = 0; i < sizeArray; i++) {
+                        PersonalSong song = (PersonalSong) bundle.getSerializable("song" + i);
+                        arrayList.add(song);
+                    }
+                    shuffle = false;
+                } else {
+                    btnShuffle.setImageResource(R.drawable.shuffle_on);
+                    Collections.shuffle(arrayList);
+                    shuffle = true;
+                }
+            }
+        });
+
+        btnLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkFav) {
+                    btnLike.setImageResource(R.drawable.white_like);
+                    playListOperations.removeSong(arrayList.get(position).getLinkSong());
+                    Toast.makeText(MusicActivity.this, "Removed from Favorites", Toast.LENGTH_SHORT).show();
+                    checkFav = false;
+                } else {
+                    Toast.makeText(MusicActivity.this, "Added to Favorites", Toast.LENGTH_SHORT).show();
+                    btnLike.setImageResource(R.drawable.liked);
+                    PersonalSong song = new PersonalSong(arrayList.get(position).getNameSong(), arrayList.get(position).getArtistSong(),
+                            arrayList.get(position).getImageSong(), arrayList.get(position).getTimeSong(), arrayList.get(position).getLinkSong());
+                    playListOperations = new PlayListOperations(MusicActivity.this);
+                    playListOperations.addSong(song);
+                    checkFav = true;
+                }
             }
         });
 
@@ -175,12 +273,14 @@ public class MusicActivity extends AppCompatActivity {
         });
     }
 
-    public void prepareMediaPlayer() {
+    public void prepareMediaPlayer(int i) {
+        arraySong = arrayList.get(i);
         String url = arraySong.getLinkSong();
         try {
+            MainActivity.mediaPlayer.reset();
             MainActivity.mediaPlayer.setDataSource(url);
-            MainActivity.mediaPlayer.prepareAsync();
-            Picasso.with(MusicActivity.this ).load(arraySong.getImageSong()).into(coverArt);
+            MainActivity.mediaPlayer.prepare();
+            Picasso.with(MusicActivity.this).load(arraySong.getImageSong()).into(coverArt);
             txtArtist.setText(arraySong.getArtistSong());
             txtTitle.setText(arraySong.getNameSong());
             txtTotalTime.setText(arraySong.getTimeSong());
@@ -195,6 +295,27 @@ public class MusicActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        MainActivity.mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                btnPlay.setImageResource(R.drawable.play);
+                if (flagRepeat == 3) {
+                    prepareMediaPlayer(position);
+                } else {
+                    if (position + 1 < arrayList.size()) {
+                        prepareMediaPlayer(position + 1);
+                        position += 1;
+                    } else {
+                        if (repeatList) {
+                            position = 0;
+                            prepareMediaPlayer(position);
+                        } else {
+                            Toast.makeText(MusicActivity.this, "PlayList Ended!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            }
+        });
     }
 
     private void mute() {
@@ -228,11 +349,13 @@ public class MusicActivity extends AppCompatActivity {
         }
     };
 
+    //update progressBar khi play nhạc
     private void updateSeekBar() {
-        progressBar.setProgress((int)(((float) MainActivity.mediaPlayer.getCurrentPosition() / MainActivity.mediaPlayer.getDuration()) * 100));
+        progressBar.setProgress((int) (((float) MainActivity.mediaPlayer.getCurrentPosition() / MainActivity.mediaPlayer.getDuration()) * 100));
         handler.postDelayed(updater, 1000);
     }
 
+    //hiển thị thời gian dưới dạng 0:00
     private String milliSecondsToTimer(long milliSeconds) {
         String timerString = "";
         String secondString;
