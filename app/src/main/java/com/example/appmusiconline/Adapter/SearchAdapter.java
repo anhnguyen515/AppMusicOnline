@@ -1,6 +1,8 @@
 package com.example.appmusiconline.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appmusiconline.Activity.MainActivity;
+import com.example.appmusiconline.Activity.MusicActivity;
+import com.example.appmusiconline.Model.PersonalSong;
 import com.example.appmusiconline.Model.SongAndArtist;
 import com.example.appmusiconline.R;
 import com.squareup.picasso.Picasso;
@@ -20,6 +25,7 @@ public class SearchAdapter extends  RecyclerView.Adapter<SearchAdapter.ViewHolde
 
     Context context ;
     ArrayList<SongAndArtist> song_arr ;
+    ArrayList<PersonalSong> list_song;
 
     public SearchAdapter(Context context, ArrayList<SongAndArtist> song_arr) {
         this.context = context;
@@ -36,12 +42,41 @@ public class SearchAdapter extends  RecyclerView.Adapter<SearchAdapter.ViewHolde
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-                SongAndArtist object = song_arr.get(position);
-                holder.txtTenbaihat.setText(object.getSongTitle());
-                holder.txtCasi.setText(object.getArtistName());
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int i) {
+
+        SongAndArtist object = song_arr.get(i);
+        holder.txtTenbaihat.setText(object.getSongTitle());
+        holder.txtCasi.setText(object.getArtistName());
 //                holder.txtTime.setText(object.get);
         Picasso.with(context).load(object.getSongHinh()).into(holder.imgbaihat);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = holder.getAdapterPosition();
+                MainActivity.mediaPlayer.release();
+                MainActivity.initMediaPlayer();
+
+                // man hinh play nhac
+                Intent intent = new Intent(context, MusicActivity.class) ;
+                Bundle bundle = new Bundle();
+                //dong goi lan luot tung song
+                for(int i=0; i<song_arr.size();i++)
+                {
+                    PersonalSong song1 = new PersonalSong(song_arr.get(i).getSongTitle(), song_arr.get(i).getArtistName(),
+                            song_arr.get(i).getSongHinh(), "¯\\_( ͡° ͜ʖ ͡°)_/¯", song_arr.get(i).getSongLink());
+                    SongAndArtist song = song_arr.get(i);
+                    bundle.putSerializable("song"+i, song1);
+                }
+                //dong goi size
+                bundle.putInt("darkwa1",song_arr.size());
+                //dong goi potition
+                bundle.putInt("darkwa2",position);
+
+                //  bundle.put
+                intent.putExtra("darkwa", bundle);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -52,16 +87,14 @@ public class SearchAdapter extends  RecyclerView.Adapter<SearchAdapter.ViewHolde
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView txtTenbaihat , txtCasi ,txtTime;
         ImageView imgbaihat ,imgluotthich;
-
+        int position;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtTenbaihat = itemView.findViewById(R.id.textViewSearchTenBaiHat);
             txtCasi = itemView.findViewById(R.id.textViewSearchTenCasi) ;
             imgbaihat = itemView.findViewById(R.id.imageSearchBaiHat);
-//            imgluotthich = itemView.findViewById(R.id.imageSearchluotthich);
-//
-//            imgluotthich.setTag(R.drawable.heart_empty);
             txtTime = itemView.findViewById(R.id.textViewSearchTime);
+
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -70,27 +103,6 @@ public class SearchAdapter extends  RecyclerView.Adapter<SearchAdapter.ViewHolde
 
                 }
             });
-            // CLICK vao hinh trai tim roi` chuyen mau
-//            imgluotthich.setOnClickListener(new View.OnClickListener() {
-//                Drawable myDrawable1 = context.getDrawable(R.drawable.heart_empty);
-//                Drawable myDrawable2 = context.getDrawable(R.drawable.heart_fill);
-//                final Bitmap myLogo1 = ((BitmapDrawable) myDrawable1).getBitmap();
-//                final Bitmap myLogo2 = ((BitmapDrawable) myDrawable2).getBitmap();
-//                @Override
-//                public void onClick(View v) {
-//                    final Bitmap bmap = ((BitmapDrawable)imgluotthich.getDrawable()).getBitmap();
-//
-//
-//                    if(bmap.sameAs(myLogo1))
-//                    {
-//                        imgluotthich.setImageResource(R.drawable.heart_fill);
-//                    }
-//                    else if (bmap.sameAs(myLogo2))
-//                    {
-//                        imgluotthich.setImageResource(R.drawable.heart_empty);
-//                    }
-//                }
-//            });
         }
     }
 }
