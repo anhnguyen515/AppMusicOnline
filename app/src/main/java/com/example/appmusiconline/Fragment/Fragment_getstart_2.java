@@ -28,6 +28,7 @@ public class Fragment_getstart_2 extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity() , LoginActivity.class);
                 startActivity(intent);
+
             }
         });
         return view;

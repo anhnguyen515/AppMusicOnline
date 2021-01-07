@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
                 checkUser = false;
                 Intent intent = new Intent(LoginActivity.this, TrangchuActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim_enter_right, R.anim.anim_exit_left);
             }
         });
         imageViewSubmit.setOnClickListener(new View.OnClickListener() {

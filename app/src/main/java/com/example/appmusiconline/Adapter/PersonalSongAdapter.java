@@ -75,6 +75,7 @@ public class PersonalSongAdapter extends BaseAdapter {
         txtArtist.setText(object.getArtistSong());
         txtTime.setText(object.getTimeSong());
 
+        //chuyển sang màn hình play nhạc và bắt đầu phát nhạc
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

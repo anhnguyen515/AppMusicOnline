@@ -125,6 +125,7 @@ public class MusicActivity extends AppCompatActivity {
             }
         });
 
+        //nhấn nút repeat
         btnRepeat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,6 +146,7 @@ public class MusicActivity extends AppCompatActivity {
             }
         });
 
+        //nhấn nút next
         btnNextSong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,6 +164,7 @@ public class MusicActivity extends AppCompatActivity {
             }
         });
 
+        //nhấn nút previous
         btnPrevSong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -175,6 +178,7 @@ public class MusicActivity extends AppCompatActivity {
             }
         });
 
+        //nhấn nút shuffle
         btnShuffle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -274,6 +278,7 @@ public class MusicActivity extends AppCompatActivity {
         });
     }
 
+    //phát nhạc
     public void prepareMediaPlayer(int i) {
         arraySong = arrayList.get(i);
         String url = arraySong.getLinkSong();
@@ -341,6 +346,7 @@ public class MusicActivity extends AppCompatActivity {
         volumeBar.setProgress(10);
     }
 
+    //update thời điểm của bài hát
     private final Runnable updater = new Runnable() {
         @Override
         public void run() {
