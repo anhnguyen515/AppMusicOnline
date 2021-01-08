@@ -167,6 +167,7 @@ public class Fragment_Album extends Fragment {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 if (position == 0 ){
+
                     FragmentTransaction transaction1 = fragmentManager.beginTransaction();
 
                     transaction1.replace(R.id.textxyz, fragmentHottrend).commit();

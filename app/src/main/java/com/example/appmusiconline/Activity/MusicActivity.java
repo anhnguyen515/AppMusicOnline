@@ -289,7 +289,9 @@ public class MusicActivity extends AppCompatActivity {
             Picasso.with(MusicActivity.this).load(arraySong.getImageSong()).into(coverArt);
             txtArtist.setText(arraySong.getArtistSong());
             txtTitle.setText(arraySong.getNameSong());
-            txtTotalTime.setText(arraySong.getTimeSong());
+            int time = MainActivity.mediaPlayer.getDuration();
+//            txtTotalTime.setText(arraySong.getTimeSong());
+            txtTotalTime.setText(milliSecondsToTimer(time));
             MainActivity.mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mediaPlayer) {

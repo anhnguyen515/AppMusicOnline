@@ -57,6 +57,12 @@ public class Fragment_personal_song extends Fragment {
                 }
             }
         });
+        Fragment_personal.imgPersonalRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getPersonalSong();
+            }
+        });
         return view ;
     }
     private void getPersonalSong() {

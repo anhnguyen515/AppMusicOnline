@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.appmusiconline.Adapter.PersonalViewPagerAdapter;
@@ -33,9 +35,9 @@ public class Fragment_personal extends Fragment {
     private void init() {
         assert getFragmentManager() != null;
         final PersonalViewPagerAdapter adapter = new PersonalViewPagerAdapter(getFragmentManager()) ;
-        String songs = getResources().getString(R.string.songs) ;
-        String playlists = getResources().getString(R.string.playlists) ;
-        String albums = getResources().getString(R.string.albums) ;
+        final String songs = getResources().getString(R.string.songs) ;
+        final String playlists = getResources().getString(R.string.playlists) ;
+        final String albums = getResources().getString(R.string.albums) ;
 
         adapter.addFragment(new Fragment_personal_song() , songs);
         adapter.addFragment(new Fragment_personal_playlist() , playlists);

@@ -93,7 +93,10 @@ public class Fragment_Explore extends Fragment {
                         currentItem = viewPagerExplore.getCurrentItem();
                         currentItem ++ ;
                         // viewPager.getAdapter().getCount()
-                        if ( currentItem >= viewPagerExplore.getAdapter().getCount()){
+//                        if ( currentItem >= viewPagerExplore.getAdapter().getCount()){
+//                            currentItem = 0 ;
+//                        }
+                        if ( currentItem >= 2){
                             currentItem = 0 ;
                         }
                         viewPagerExplore.setCurrentItem(currentItem , true );

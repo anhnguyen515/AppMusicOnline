@@ -71,7 +71,7 @@
     <androidx.viewpager.widget.ViewPager
         android:layout_below="@+id/myTabLayout"
         android:layout_width="match_parent"
-        android:layout_height="900dp"
+        android:layout_height="1000dp"
         android:id="@+id/myViewPager"
         android:layout_weight="1">
 

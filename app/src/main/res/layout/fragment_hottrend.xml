@@ -41,7 +41,7 @@
     <GridView
         android:layout_marginTop="@dimen/margin_basex2"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="700dp"
         android:id="@+id/gridViewTrendingSongs"
         android:numColumns="3"
         android:layout_below="@+id/imgSeeTrendingSongs"

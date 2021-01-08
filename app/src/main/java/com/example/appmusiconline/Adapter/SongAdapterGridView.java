@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.appmusiconline.Activity.MainActivity;
 import com.example.appmusiconline.Activity.MusicActivity;
 import com.example.appmusiconline.Model.PersonalSong;
 import com.example.appmusiconline.Model.SongAndArtist;
@@ -52,8 +53,8 @@ public class SongAdapterGridView extends BaseAdapter {
 
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder ;
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        final ViewHolder holder ;
 
         holder = new ViewHolder() ;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
@@ -72,6 +73,34 @@ public class SongAdapterGridView extends BaseAdapter {
         Picasso.with(context).load(object.getSongHinh()).into(imgSong);
         txtName.setText(object.getSongTitle());
         txtArtist.setText(object.getArtistName());
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.mediaPlayer.release();
+                MainActivity.initMediaPlayer();
+
+                // man hinh play nhac
+                Intent intent = new Intent(context, MusicActivity.class) ;
+                Bundle bundle = new Bundle();
+                //dong goi lan luot tung song
+                for(int i=0; i<arr_personal_song.size();i++)
+                {
+                    PersonalSong song1 = new PersonalSong(arr_personal_song.get(i).getSongTitle(), arr_personal_song.get(i).getArtistName(),
+                            arr_personal_song.get(i).getSongHinh(), "¯\\_( ͡° ͜ʖ ͡°)_/¯", arr_personal_song.get(i).getSongLink());
+                    SongAndArtist song = arr_personal_song.get(i);
+                    bundle.putSerializable("song"+i, song1);
+                }
+                //dong goi size
+                bundle.putInt("darkwa1",arr_personal_song.size());
+                //dong goi potition
+                bundle.putInt("darkwa2",position);
+
+                //  bundle.put
+                intent.putExtra("darkwa", bundle);
+                context.startActivity(intent);
+            }
+        });
 //
 //        Animation animation = AnimationUtils.loadAnimation(context,R.anim.animation_personal_song);
 //        convertView.startAnimation(animation);

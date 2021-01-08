@@ -91,8 +91,6 @@ public class Fragment_hottrend extends Fragment {
                     gridViewSongs.setVisibility(View.VISIBLE);
                     recyclerViewSong.setVisibility(View.GONE);
 
-
-
                 }
                 else {
                     gridViewSongs.setVisibility(View.GONE);
