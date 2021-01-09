@@ -70,7 +70,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Incorrect username or password.\nPlease try again or Skip.", Toast.LENGTH_SHORT).show();
                 } else {
                     if (a.contains("THAT")) {
-
                         checkUser = false;
                         Toast.makeText(LoginActivity.this, "Incorrect username or password.\nPlease try again or Skip.", Toast.LENGTH_SHORT).show();
                     } else {
